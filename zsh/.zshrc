@@ -27,6 +27,7 @@ alias ll="ls -lh --color=auto"
 alias ls="ls --color=auto"
 alias lla="ls -lah --color=auto"
 alias -s t2t="vim"
+alias -s js="vim"
 alias aptitude="sudo aptitude"
 alias install="sudo apt-get install"
 
@@ -37,4 +38,11 @@ export PATH=$PATH:/sbin:/usr/sbin
 function git_diff() {
     git diff --no-ext-diff -w "$@" | vim -R -
 }
- export PYTHONSTARTUP='/home/vincent/.pyrc'
+export PYTHONSTARTUP='/home/vincent/.pyrc'
+
+autoload up-line-or-beginning-search
+autoload down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search

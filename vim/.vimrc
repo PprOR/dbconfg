@@ -69,7 +69,7 @@ vmap ,o :call OpenWebBrowser("<C-R><C-A>")<CR>
 source /home/vincent/dotfiles/vim/.vimrc.bepo
 
 "Code folding
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevel=4
 
 "Task list
