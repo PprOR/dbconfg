@@ -30,6 +30,7 @@ alias -s t2t="vim"
 alias -s js="vim"
 alias aptitude="sudo aptitude"
 alias install="sudo apt-get install"
+alias sudo="sudo -E"
 
 # prompt
 PS1="%F{green}%n%f@%{%F{yellow}%}%M%{%f%}:%{%F{cyan}%}%~%{%f%}$ "
