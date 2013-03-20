@@ -66,7 +66,7 @@ vmap ,o :call OpenWebBrowser("<C-R><C-A>")<CR>
 
 " Map les touches du bépo en qwerty en mode normal si clavier en bepo
 "set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,jp,j^,z$,aq,us,id,ef,\,g,ch,tj,sk,rl,nm,mù,ç*,ê<,àw,h:,yc,.v,kb,'n,q\,,g;;,x:,w$,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,J¨,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,NL,RM,M%,!*,Ê>,ÀW,HX,YC,:V,KB,\\;N,QG,G.,X/,W§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,[[,]|,±`,¬\,×^,÷@,¯],%}
-source /home/vincent/dotfiles/vim/.vimrc.bepo
+source /home/vincent/.dotfiles/vim/.vimrc.bepo
 
 "Code folding
 set foldmethod=indent
@@ -98,7 +98,7 @@ autocmd BufReadPost *
 let g:pyflakes_use_quickfix = 0
 
 " vim-django settings
-let g:django_projects = '~/gitapwise/django'
+" let g:django_projects = '~/gitapwise/django'
 
 " tagbar
 let g:tagbar_usearrows = 1
@@ -131,3 +131,6 @@ colorscheme solarized
 " CloseTag
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+" LESS syntax highlight
+nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
