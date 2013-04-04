@@ -37,7 +37,7 @@ noremap . v
 noremap k b
 noremap ' n
 noremap q ,
-noremap g ;
+noremap g .
 noremap ,è gt
 noremap ,È gT
 noremap , g
@@ -84,6 +84,7 @@ noremap Ç *
 " configuration du copié sur le ç car y est sur la touche composée ^
  
 noremap ç y
+noremap çç yy
  
 " configuration des nombres
  
@@ -93,11 +94,11 @@ noremap « é
 noremap » "
 noremap ( '
 noremap ) (
-noremap @ -
-noremap + è
-noremap - _
-noremap / ç
-noremap * à
+" noremap @ -
+" noremap + è
+" noremap - _
+" noremap / ç
+" noremap * à
 noremap = )
 noremap % =
 noremap # ~

@@ -95,8 +95,6 @@ autocmd BufReadPost *
     \ exe "normal g`\"" |
     \ endif
 
-let g:pyflakes_use_quickfix = 0
-
 " vim-django settings
 " let g:django_projects = '~/gitapwise/django'
 
@@ -122,9 +120,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " Solarized theme
 set background=dark
 let g:solarized_termtrans=1
-let g:solarized_termcolors=16
-let g:solarized_contrast="low"
-let g:solarized_visibility="low"
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 colorscheme solarized
 
 
@@ -134,3 +132,20 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 
 " LESS syntax highlight
 nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
+
+" prevent listing some file types
+set wildignore+=*.pyc
+
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+source ~/.vimrc.local

@@ -37,3 +37,6 @@
 [submodule "vim/.vim/bundle/vim-css-color"]
 	path = vim/.vim/bundle/vim-css-color
 	url = git://github.com/skammer/vim-css-color.git
+[submodule "vim/.vim/bundle/tasklist"]
+	path = vim/.vim/bundle/tasklist
+	url = https://github.com/vim-scripts/TaskList.vim.git
