@@ -130,11 +130,16 @@ colorscheme solarized
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
+autocmd FileType tex setlocal shiftwidth=2 tabstop=2
+
 " LESS syntax highlight
 nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 " prevent listing some file types
-set wildignore+=*.pyc
+set wildignore+=*.pyc,*.png,*.jpg,*.bmp
+
+" show items list while completing in command mode
+set wildmenu
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
