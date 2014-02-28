@@ -117,6 +117,16 @@ mytextclock = awful.widget.textclock()
 datewidget = wibox.widget.textbox()
 vicious.register(datewidget, vicious.widgets.date, "%d/%m, %R", 60)
 
+--vicious battery
+batwidget = awful.widget.progressbar()
+batwidget:set_width(8)
+batwidget:set_height(10)
+batwidget:set_vertical(true)
+batwidget:set_background_color("#494B4F")
+batwidget:set_border_color(nil)
+batwidget:set_color("#00bfff")
+vicious.register(batwidget, vicious.widgets.bat, "$2", 120, "BAT0")
+
 -- vicious cpu
 cpuwidget = awful.widget.graph()
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
@@ -209,8 +219,9 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(cpuwidget)
     right_layout:add(memwidget)
+    right_layout:add(cpuwidget)
+    right_layout:add(batwidget)
     right_layout:add(datewidget)
 
     -- Now bring it all together (with the tasklist in the middle)
@@ -280,9 +291,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- added programs
-    awful.key({ modkey,           }, "g",     function () awful.util.spawn("google-chrome") end),
+    awful.key({ modkey,           }, "g",     function () awful.util.spawn("google-chrome-stable") end),
     awful.key({ modkey,           }, "k",     function () awful.util.spawn("skype") end),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.util.spawn("slock") end),
+    awful.key({ modkey,           }, "a",     function () awful.util.spawn("virtualbox --startvm Win7") end),
+
+
+    --volume control
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q sset Master 2dB-") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -q sset Master 2dB+") end),
+    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer -q sset Master toggle") end),
 
     -- Prompt
     awful.key({ modkey },            "l",     function () mypromptbox[mouse.screen]:run() end),

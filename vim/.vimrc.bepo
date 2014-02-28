@@ -37,6 +37,7 @@ noremap . v
 noremap k b
 noremap ' n
 noremap q ,
+noremap qg `.
 noremap g .
 noremap ,è gt
 noremap ,È gT
@@ -92,15 +93,13 @@ noremap $ ²
 noremap " &
 noremap « é
 noremap » "
-noremap ( '
-noremap ) (
+" noremap ( '
+" noremap ) (
 " noremap @ -
 " noremap + è
 " noremap - _
 " noremap / ç
 " noremap * à
-noremap = )
-noremap % =
 noremap # ~
 " noremap 1 !
 " noremap 2 @

@@ -96,7 +96,7 @@ autocmd BufReadPost *
     \ endif
 
 " vim-django settings
-" let g:django_projects = '~/gitapwise/django'
+let g:django_projects = '~'
 
 " tagbar
 let g:tagbar_usearrows = 1
@@ -134,11 +134,13 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 " prevent listing some file types
-set wildignore+=*.pyc
+set wildignore+=*.pyc,*.jpg,*.png,*.pdf
 
 " Add the virtualenv's site-packages to vim path
+if has('python')
 py << EOF
 import os.path
+import os
 import sys
 import vim
 if 'VIRTUAL_ENV' in os.environ:
@@ -147,5 +149,6 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
+endif
 
-source ~/.vimrc.local
+silent! source ~/.vimrc.local
