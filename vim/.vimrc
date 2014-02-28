@@ -136,6 +136,9 @@ nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 " prevent listing some file types
 set wildignore+=*.pyc,*.jpg,*.png,*.pdf
 
+" show items list while completing in command mode
+set wildmenu
+
 " Add the virtualenv's site-packages to vim path
 if has('python')
 py << EOF
